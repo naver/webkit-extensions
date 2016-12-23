@@ -1,0 +1,49 @@
+# Copyright (C) 2016 Naver Corp. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#  * Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#  * Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY
+# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+# PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+# CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+# PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
+# OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+namespace Extensions
+namespace chrome
+
+messages -> TabsHost {
+    Get(API::Number tabId, API::Function callback);
+    GetCurrent(API::Function callback);
+    Connect(API::Number tabId, API::Dictionary connectInfo);
+    SendRequest(API::Number tabId, API::Dictionary request, API::Function responseCallback);
+    SendMessage(API::Number tabId, API::Dictionary message, API::Dictionary options, API::Function responseCallback);
+    GetSelected(API::Number windowId, API::Function callback);
+    GetAllInWindow(API::Number windowId, API::Function callback);
+    Create(API::Dictionary createProperties, API::Function callback);
+    Duplicate(API::Number tabId, API::Function callback);
+    Query(API::Dictionary queryInfo, API::Function callback);
+    Highlight(API::Dictionary highlightInfo, API::Function callback);
+    Update(API::Number tabId, API::Dictionary updateProperties, API::Function callback);
+    Move(API::Array tabIds, API::Dictionary moveProperties, API::Function callback);
+    Reload(API::Number tabId, API::Dictionary reloadProperties, API::Function callback);
+    Remove(API::Array tabIds, API::Function callback);
+    DetectLanguage(API::Array tabIds, API::Function callback);
+    CaptureVisibleTab(API::Number windowId, API::Dictionary options, API::Function callback);
+    ExecuteScript(API::Number tabId, API::Dictionary details, API::Function callback);
+    InsertCSS(API::Number tabId, API::Dictionary details, API::Function callback);
+    SetZoom(API::Number tabId, API::Number zoomFactor, API::Function callback);
+    GetZoom(API::Number tabId, API::Function callback);
+}

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+exec 1>&2
+
+export WEBKIT_ROOT=
+
+if [ ! -d "$WEBKIT_ROOT" ]; then
+    echo "$WEBKIT_ROOT not exist"
+    exit 1
+fi
+
+exec git diff --cached --name-only | xargs python $WEBKIT_ROOT/Tools/Scripts/check-webkit-style
